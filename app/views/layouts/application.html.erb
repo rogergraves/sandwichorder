@@ -25,13 +25,17 @@
 		</div>
 	</div>	
 	
-	<% flash.each do |name, msg| %>
-		<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-			<%= msg  %>
-		</div>
-	<% end %>
 
-<%= yield %>
+	<div class="container">
 
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+				<%= msg  %>
+			</div>
+		<% end %>
+
+		<%= yield %>
+
+	</div>
 </body>
 </html>
