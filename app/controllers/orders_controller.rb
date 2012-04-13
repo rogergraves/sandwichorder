@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.user_id = current_user.id
+    @sandwiches = Sandwich.all
 
     respond_to do |format|
       format.html # new.html.erb

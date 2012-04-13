@@ -15,11 +15,12 @@
 
     <%= f.hidden_field(:user_id) %>
   </div>
+
   <div class="field">
-    <%= f.label :sandwich_id %><br />
-    <%= f.number_field :sandwich_id %>
+    <%= f.label "Make my sandwich" %><br />
+    <%= f.collection_select(:sandwich_id, @sandwiches, :id, :name) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Make it Fred!" %>
   </div>
 <% end %>
