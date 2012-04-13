@@ -1,20 +1,24 @@
 <h1>My Sandwich Orders</h1>
 
-<table>
-	<tr>
-		<th>Sandwich ordered</th>
-		<th>When I ordered</th>
-		<th>Clear order</th>
-	</tr>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Sandwich ordered</th>
+			<th>When I ordered</th>
+			<th>Clear order</th>
+		</tr>
+	</thead>
 <% @orders.each do |order| %>
-  <tr>
-    <td><%= order.sandwich_name %></td>
-    <td><%= time_ago_in_words(order.created_at) %> ago</td>
-    <td><%= link_to 'I got this already', order, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+	<tbody>
+	  <tr>
+	    <td><%= order.sandwich_name %></td>
+	    <td><%= time_ago_in_words(order.created_at) %> ago</td>
+	    <td><%= link_to('I got this already', order, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger") %></td>
+	  </tr>
+	</tbody>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to "I'm hungry! Fred????", new_order_path %>
+<%= link_to("I'm hungry! Fred????", new_order_path, :class => "btn btn-primary btn-large") %>
