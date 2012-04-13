@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
+    @order.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
