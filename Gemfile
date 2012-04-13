@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'heroku', '~> 2.21.3'
 gem "devise", "~> 2.0.4"
+gem "twitter-bootstrap-rails", "~> 2.0.6"
 
 
 # Gems used only for assets and not required

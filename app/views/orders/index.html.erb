@@ -3,13 +3,13 @@
 <table>
 	<tr>
 		<th>Sandwich ordered</th>
-		<th>When</th>
-		<th>Clear</th>
+		<th>When I ordered</th>
+		<th>Clear order</th>
 	</tr>
 <% @orders.each do |order| %>
   <tr>
     <td><%= order.sandwich_name %></td>
-    <td><%= order.created_at %></td>
+    <td><%= time_ago_in_words(order.created_at) %> ago</td>
     <td><%= link_to 'I got this already', order, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
