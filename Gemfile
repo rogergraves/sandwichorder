@@ -1,11 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'mysql2'
+gem 'heroku', '~> 2.21.3'
 
 
 # Gems used only for assets and not required
@@ -22,17 +18,13 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development, :test do
+  gem 'mysql2'
+  gem "rspec-rails", "~> 2.9.0"
+  gem "capybara", "~> 1.1.2"
+  gem "launchy", "~> 2.1.0"
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :production do
+  gem 'pg', '0.12.2'
+end
