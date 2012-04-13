@@ -44,15 +44,18 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     
-    a = 'AC1660f10e3c574db28a14a2b65f27ed88'
-    t = 'f0ddd92db1ba63e4df656aae38aff69c'
+    quotes = File.read("quotes.txt")
+    quote = quotes.split("\n").sample
+    
+    a = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    t = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     
     @client = Twilio::REST::Client.new a, t
     
     @client.account.sms.messages.create(
       :from => '(415) 599-2671',
       :to => '(317) 519-2400',
-      :body => "Yo Fred, #{@order.user.email} wants a #{@order.sandwich_name}. (witty quote here)"
+      :body => "Yo Fred, #{@order.user.email} wants a #{@order.sandwich_name}. By the way, #{quote}"
     )
     
     
