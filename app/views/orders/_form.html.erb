@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label "Make my sandwich" %><br />
-    <%= f.collection_select(:sandwich_id, @sandwiches, :id, :name) %>
+    <%= f.collection_select(:sandwich_name, @sandwiches, :name, :name) %>
   </div>
   <div class="actions">
     <%= f.submit "Make it Fred!" %>
