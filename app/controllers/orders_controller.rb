@@ -19,8 +19,8 @@ class OrdersController < ApplicationController
     quotes = File.read("quotes.txt")
     quote = quotes.split("\n").sample
     
-    a = 'AC1660f10e3c574db28a14a2b65f27ed88'
-    t = 'f0ddd92db1ba63e4df656aae38aff69c'
+    a = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    t = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     
     @client = Twilio::REST::Client.new a, t
     
