@@ -21,6 +21,6 @@
     <%= f.collection_select(:sandwich_name, @sandwiches, :name, :name) %>
   </div>
   <div class="actions">
-    <%= f.submit "Make it Fred!" %>
+    <%= f.submit("Make it Fred!", :class => "btn btn-primary btn-large") %>
   </div>
 <% end %>
