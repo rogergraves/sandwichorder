@@ -1,27 +1,18 @@
 class OrdersController < ApplicationController
-  # GET /orders
-  # GET /orders.json
+
   def index
-    @orders = Order.all
+    @orders = Order.find_all_by_user_id(current_user.id)
 
     redirect_to(new_order_path) unless @orders.length > 0 
   end
 
-  # GET /orders/new
-  # GET /orders/new.json
+
   def new
     @order = Order.new
     @order.user_id = current_user.id
     @sandwiches = Sandwich.all
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @order }
-    end
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
     @order = Order.new(params[:order])
     
@@ -35,8 +26,7 @@ class OrdersController < ApplicationController
     
     @client.account.sms.messages.create(
       :from => '(415) 599-2671',
-      # :to => '(317) 519-2400',
-      :to => '(925) 286-4589',
+      :to => '(317) 519-2400',
       :body => "Yo Fred, #{@order.user.email} wants a #{@order.sandwich_name}. By the way, #{quote}"
     )
     
@@ -48,13 +38,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
     
     redirect_to(orders_url, notice: 'Another satisfied customer.')
-    
   end
 end
