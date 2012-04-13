@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Sandwich.new(name: "Meaty").save
+Sandwich.new(name: "Vegetarian").save
+Sandwich.new(name: "Vegan :-(").save
